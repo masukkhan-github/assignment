@@ -26,13 +26,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 
-app.use(express.static(path.join(__dirname, '../Frontend/signup.html')));
+app.use(express.static(path.join(__dirname, '../Frontend.html')));
 
 app.use('/', userRouter);
 
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../Frontend/signup.html', 'signup.html'));
+  res.sendFile(path.join(__dirname, '../Frontend', 'signup.html'));
 });
 
 app.listen(PORT, async () => {
