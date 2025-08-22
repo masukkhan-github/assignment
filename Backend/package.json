@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "build": "babel src -d lib",
+    "test": "jest"
   },
   "dependencies": {
     "bcryptjs": "^3.0.2",
