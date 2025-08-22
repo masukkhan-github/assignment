@@ -1,18 +1,24 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
 
 import {PORT} from './config/env.js';
  
 import userRouter from './routes/user.routes.js';
-// import authRouter from './routes/auth.routes.js';
+
 import connectToDatabase from './database/mongoose.js';
-// import errorMiddleware from './middlewares/error.middleware.js';
+
 
 
 
 const app = express();
 
 app.set('trust proxy', true);
+
+app.use(cors({
+  origin: "*",    
+  credentials: true
+}));
 
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
@@ -24,7 +30,7 @@ app.use(cookieParser());
 app.use('/', userRouter);
 
 
-// app.use(errorMiddleware)
+
 
 app.get("/", (req,res)=>{
     res.send('Welcome to the user management API!');
