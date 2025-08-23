@@ -37,6 +37,7 @@ app.get("/", (req,res)=>{
 })
 
 app.listen(PORT,async ()=>{
+  
     console.log(`user management api is running on http://localhost:${PORT}`);
 
    await connectToDatabase();
